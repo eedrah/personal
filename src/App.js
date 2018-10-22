@@ -68,7 +68,7 @@ export default () => (
         <h2>Upload photos</h2>
         <p>
           Uploaded photos will be visible to other people uploading photos. Or,
-          you can also tell me and I can send you a private link which won't be
+          you can also ask me and I can send you a private link which won't be
           visible to others.
         </p>
       </Link>

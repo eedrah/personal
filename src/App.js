@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link, Redirect, Switch, Route, BrowserRouter } from 'react-router-dom'
 
 const App = styled.div`
   text-align: center;
@@ -45,19 +46,38 @@ const App = styled.div`
   }
 `
 
+const Memories = () => {
+  window.location = 'https://goo.gl/forms/vN58c57ZxrroDaKk1'
+  return null
+}
+
+const Photos = () => {
+  window.location = 'https://goo.gl/photos/N1iY29VoYsTkTxmT7'
+  return null
+}
+
 export default () => (
-  <App>
-    <h1>Personal links</h1>
-    <a href="https://goo.gl/forms/vN58c57ZxrroDaKk1">
-      <h2>Recuerdos/Memories</h2>
-      <p>Enter a fond memory or a fun story to add to my list of memories.</p>
-    </a>
-    <a href="https://goo.gl/photos/N1iY29VoYsTkTxmT7">
-      <h2>Upload photos</h2>
-      <p>
-        Uploaded photos will be visible to other people uploading photos. Or,
-        you can also tell me and I can send you a private link.
-      </p>
-    </a>
-  </App>
+  <BrowserRouter basename="personal">
+    <App>
+      <h1>Personal links</h1>
+      <Link to="/memories">
+        <h2>Recuerdos/Memories</h2>
+        <p>Enter a fond memory or a fun story to add to my list of memories.</p>
+      </Link>
+      <Link to="/photos">
+        <h2>Upload photos</h2>
+        <p>
+          Uploaded photos will be visible to other people uploading photos. Or,
+          you can also tell me and I can send you a private link which won't be
+          visible to others.
+        </p>
+      </Link>
+      <Switch>
+        <Route path="/memories" component={Memories} />
+        <Route path="/photos" component={Photos} />
+        <Route path="/" exact component={null} />
+        <Redirect from="/" to="/" />
+      </Switch>
+    </App>
+  </BrowserRouter>
 )

@@ -51,7 +51,7 @@ const App = styled.div`
 const RouteLinks = {
   Nz: 'https://photos.app.goo.gl/Jw5xbaUUmg9t3ZTw5',
   Memories: 'https://goo.gl/forms/vN58c57ZxrroDaKk1',
-  Photos: 'https://goo.gl/photos/N1iY29VoYsTkTxmT7',
+  Photos: 'https://photos.app.goo.gl/1BUhMMzZAASr7pNt8',
 }
 const RouteComponents = Object.keys(RouteLinks).reduce((a, c) => {
   a[c] = () => {
